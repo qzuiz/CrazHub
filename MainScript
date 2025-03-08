@@ -133,6 +133,7 @@ local JumpPower = TOH:CreateSlider({
    end,
 })
 
+local General = General:CreateSection("General")
 local JumpPower = General:CreateSlider({
    Name = "JumpPower",
    Range = {0, 1000},
