@@ -4,41 +4,41 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "CrazHub",
-   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   Icon = 0,
    LoadingTitle = "CrazHub",
    LoadingSubtitle = "by qzuiziaxxaz and 944caleb",
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+   Theme = "Default",
 
    DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+   DisableBuildWarnings = false,
 
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = "CrazHub", -- Create a custom folder for your hub/game
+      FolderName = "CrazHub",
       FileName = "CrazHub"
    },
 
    Discord = {
-      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "https://discord.gg/u4uADBzR", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+      Enabled = true,
+      Invite = "https://discord.gg/u4uADBzR",
+      RememberJoins = true
    },
 
-   KeySystem = true, -- Set this to true to use our key system
+   KeySystem = true,
    KeySettings = {
       Title = "CrazHub",
       Subtitle = "Key System",
-      Note = "😆Join our discord server to get the key!", -- Use this to tell the user how to get a key
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"crazhubontop"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Note = "😆Join our discord server to get the key!",
+      FileName = "Key",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = {"crazhubontop"}
    }
 })
 
 local Kitty = Window:CreateTab("Kitty", 4483362458)
 local TOH = Window:CreateTab("TOH", 4483362458)
-local General = Window:CreateTab("General", 4483362458)
+local GeneralTab = Window:CreateTab("General", 4483362458) -- Renamed from 'General' to 'GeneralTab'
 
 local General1 = Kitty:CreateSection("General")
 local JoinGame = Kitty:CreateButton({
@@ -120,39 +120,39 @@ local TPToRedChip = Kitty:CreateButton({
    end,
 })
 
-local General = TOH:CreateSection("General")
-local JumpPower = TOH:CreateSlider({
+local GeneralTOH = TOH:CreateSection("General") -- Renamed to 'GeneralTOH'
+local JumpPowerTOH = TOH:CreateSlider({ -- Renamed variable
    Name = "JumpPower",
-   Range = {0, 10000},
+   Range = {0, 1000},
    Increment = 10,
    Suffix = "jump power",
    CurrentValue = 10,
-   Flag = "jumppower", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "jumppowertoh",
    Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
    end,
 })
 
-local General2 = General:CreateSection("General")
-local JumpPower = General:CreateSlider({
+local GeneralSection = GeneralTab:CreateSection("General") -- Renamed to 'GeneralSection'
+local JumpPowerGeneral = GeneralTab:CreateSlider({ -- Renamed variable
    Name = "JumpPower",
    Range = {0, 1000},
    Increment = 10,
    Suffix = "jumppower",
    CurrentValue = 10,
-   Flag = "jumppowergeneral", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "jumppowergeneral",
    Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
    end,
 })
 
-local WalkSpeed = General:CreateSlider({
+local WalkSpeed = GeneralTab:CreateSlider({
    Name = "WalkSpeed",
    Range = {0, 1000},
    Increment = 10,
    Suffix = "speed",
    CurrentValue = 10,
-   Flag = "speedgeneral", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "speedgeneral",
    Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
    end,
