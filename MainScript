@@ -2,6 +2,8 @@ debugX = true
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
+local player = game.Players.LocalPlayer
+
 local Window = Rayfield:CreateWindow({
    Name = "CrazHub",
    Icon = 0,
@@ -59,6 +61,14 @@ local Uninject = Kitty:CreateButton({
    Name = "Uninject",
    Callback = function()
        Rayfield:Destroy()
+   end,
+})
+
+local AddInventory = Kitty:CreateButton({
+   Name = "AddInventory",
+   Callback = function()
+       local newInventory = game:GetService("Players")[player.Name].Inventory.Slots.Slot2:Clone()
+	newInventory.Parent = game:GetService("Players")[player.Name].Inventory.Slots
    end,
 })
 
