@@ -72,6 +72,13 @@ local AddInventory = Kitty:CreateButton({
    end,
 })
 
+local RemoveInventory = Kitty:CreateButton({
+   Name = "RemoveInventory",
+   Callback = function()
+       game:GetService("Players")[player.Name].Inventory.Slots.Slot2:Destroy()
+   end,
+})
+
 local House = Kitty:CreateSection("House")
 local TPToCrowbar = Kitty:CreateButton({
    Name = "TPToCrowbar",
