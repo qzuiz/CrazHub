@@ -1,1 +1,1 @@
-loadstring(game:HttpGet('https://pastebin.com/raw/UUsHH5vj'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/qzuiz/CrazHub/refs/heads/main/MainScript'))()
