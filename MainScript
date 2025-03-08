@@ -36,9 +36,9 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local General = Window:CreateTab("General", 4483362458)
 local Kitty = Window:CreateTab("Kitty", 4483362458)
 local TOH = Window:CreateTab("TOH", 4483362458)
+local General = Window:CreateTab("General", 4483362458)
 
 local General = Kitty:CreateSection("General")
 local JoinGame = Kitty:CreateButton({
