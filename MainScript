@@ -133,12 +133,12 @@ local JumpPower = TOH:CreateSlider({
    end,
 })
 
-local General = General:CreateSection("General")
+local General2 = General:CreateSection("General")
 local JumpPower = General:CreateSlider({
    Name = "JumpPower",
    Range = {0, 1000},
    Increment = 10,
-   Suffix = "jump power",
+   Suffix = "jumppower",
    CurrentValue = 10,
    Flag = "jumppowergeneral", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
@@ -150,7 +150,7 @@ local WalkSpeed = General:CreateSlider({
    Name = "WalkSpeed",
    Range = {0, 1000},
    Increment = 10,
-   Suffix = "jump power",
+   Suffix = "speed",
    CurrentValue = 10,
    Flag = "speedgeneral", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
