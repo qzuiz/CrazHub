@@ -1,0 +1,178 @@
+debugX = true
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local player = game.Players.LocalPlayer
+
+local Window = Rayfield:CreateWindow({
+   Name = "CrazHub",
+   Icon = 0,
+   LoadingTitle = "CrazHub",
+   LoadingSubtitle = "by qzuiziaxxaz and 944caleb",
+   Theme = "Default",
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "CrazHub",
+      FileName = "CrazHub"
+   },
+
+   Discord = {
+      Enabled = true,
+      Invite = "https://discord.gg/u4uADBzR",
+      RememberJoins = true
+   },
+
+   KeySystem = true,
+   KeySettings = {
+      Title = "CrazHub",
+      Subtitle = "Key System",
+      Note = "😆Join our discord server to get the key!",
+      FileName = "Key",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = {"crazhubontop"}
+   }
+})
+
+local Kitty = Window:CreateTab("Kitty", 4483362458)
+local TOH = Window:CreateTab("TOH", 4483362458)
+local GeneralTab = Window:CreateTab("General", 4483362458)
+local Jailbreak = Window:CreateTab("Jailbreak", 4483362458)
+
+local General1 = Kitty:CreateSection("General")
+local JoinGame = Kitty:CreateButton({
+   Name = "Join Game",
+   Callback = function()
+		game.ReplicatedStorage.Events.Join:FireServer()
+   end,
+})
+
+local LeaveGame = Kitty:CreateButton({
+   Name = "Leave Game",
+   Callback = function()
+		game.ReplicatedStorage.Events.Leave:FireServer()
+   end,
+})
+
+local Uninject = Kitty:CreateButton({
+   Name = "Uninject",
+   Callback = function()
+       Rayfield:Destroy()
+   end,
+})
+
+local AddInventory = Kitty:CreateButton({
+   Name = "AddInventory",
+   Callback = function()
+       local newInventory = game:GetService("Players")[player.Name].Inventory.Slots.Slot2:Clone()
+	newInventory.Parent = game:GetService("Players")[player.Name].Inventory.Slots
+   end,
+})
+
+local House = Kitty:CreateSection("House")
+local TPToCrowbar = Kitty:CreateButton({
+   Name = "TPToCrowbar",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.House.Tools.Crowbar.Union.CFrame
+   end,
+})
+
+local TPToRedKey = Kitty:CreateButton({
+   Name = "TPToRedKey",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.House.Tools["Red Key"].Union.CFrame
+   end,
+})
+
+local TPToGreenKey = Kitty:CreateButton({
+   Name = "TPToGreenKey",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.House.Tools["Green Key"].Union.CFrame
+   end,
+})
+
+local TPToKeycard = Kitty:CreateButton({
+   Name = "TPToKeycard",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.House.Tools.Keycard.Union.CFrame
+   end,
+})
+
+local TPToGasoline = Kitty:CreateButton({
+   Name = "TPToGasoline",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.House.Tools["Gasoline can"].Union.CFrame
+   end,
+})
+
+local TPToPicklock = Kitty:CreateButton({
+   Name = "TPToPicklock",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.House.Tools.Picklock.Union.CFrame
+   end,
+})
+
+local Club = Kitty:CreateSection("Club")
+local TPToBone = Kitty:CreateButton({
+   Name = "TPToBone",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.Club.Tools.Bone.Union.CFrame
+   end,
+})
+
+local TPToRedChip = Kitty:CreateButton({
+   Name = "TPToRedChip",
+   Callback = function()
+       game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Map.Club.Tools["Red Chip"].Union.CFrame
+   end,
+})
+
+local GeneralTOH = TOH:CreateSection("General") -- Renamed to 'GeneralTOH'
+local JumpPowerTOH = TOH:CreateSlider({ -- Renamed variable
+   Name = "JumpPower",
+   Range = {0, 1000},
+   Increment = 10,
+   Suffix = "jump power",
+   CurrentValue = 10,
+   Flag = "jumppowertoh",
+   Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+   end,
+})
+
+local GeneralSection = GeneralTab:CreateSection("General")
+local JumpPowerGeneral = GeneralTab:CreateSlider({
+   Name = "JumpPower",
+   Range = {0, 1000},
+   Increment = 10,
+   Suffix = "jumppower",
+   CurrentValue = 10,
+   Flag = "jumppowergeneral",
+   Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+   end,
+})
+
+local WalkSpeed = GeneralTab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {0, 1000},
+   Increment = 10,
+   Suffix = "speed",
+   CurrentValue = 10,
+   Flag = "speedgeneral",
+   Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+   end,
+})
+
+local BasicStuff = Jailbreak:CreateSection("BasicStuff")
+local Spectate = Jailbreak:CreateButton({
+   Name = "Jailbreak",
+   Callback = function()
+       game:GetService("Players")[player.Name].Spectate:FireServer()
+   end,
+})
